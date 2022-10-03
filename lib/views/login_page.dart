@@ -17,6 +17,8 @@ class _LoginPageState extends State<LoginPage>
   late Animation<double> containerSize;
   bool isLogin = true;
 
+  bool passHide = true;
+
   @override
   void dispose() {
     animationController.dispose();
@@ -165,13 +167,30 @@ class _LoginPageState extends State<LoginPage>
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.white,
                       ),
-                      child: const TextField(
+                      child: TextField(
+                        obscureText: passHide,
                         cursorColor: Color.fromARGB(255, 178, 212, 145),
                         decoration: InputDecoration(
                           icon: Icon(Icons.lock,
                               color: Color.fromARGB(255, 178, 212, 145)),
                           hintText: "Password",
                           border: InputBorder.none,
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                //add Icon button at end of TextField
+                                setState(() {
+                                  //refresh UI
+                                  if (passHide) {
+                                    passHide = false;
+                                  } else {
+                                    passHide = true;
+                                  }
+                                });
+                              },
+                              icon: Icon(passHide == true
+                                  ? Icons.remove_red_eye
+                                  : Icons.password),
+                              color: Color.fromARGB(255, 133, 170, 96)),
                         ),
                       ),
                     ),
@@ -310,13 +329,30 @@ class _LoginPageState extends State<LoginPage>
                           borderRadius: BorderRadius.circular(30),
                           color: Colors.white,
                         ),
-                        child: const TextField(
+                        child: TextField(
+                          obscureText: passHide,
                           cursorColor: Color.fromARGB(255, 178, 212, 145),
                           decoration: InputDecoration(
                             icon: Icon(Icons.lock,
                                 color: Color.fromARGB(255, 178, 212, 145)),
                             hintText: "Password",
                             border: InputBorder.none,
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  //add Icon button at end of TextField
+                                  setState(() {
+                                    //refresh UI
+                                    if (passHide) {
+                                      passHide = false;
+                                    } else {
+                                      passHide = true;
+                                    }
+                                  });
+                                },
+                                icon: Icon(passHide == true
+                                    ? Icons.remove_red_eye
+                                    : Icons.password),
+                                color: Color.fromARGB(255, 133, 170, 96)),
                           ),
                         ),
                       ),
