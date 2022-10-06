@@ -1,3 +1,4 @@
+import 'package:demo_hackit/views/root_app.dart';
 import 'package:demo_hackit/views/welcome_page.dart';
 import 'package:flutter/material.dart';
 
@@ -20,11 +21,11 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const WelcomePage(),
+      home: WelcomePage(),
       initialRoute: MyRoutes.welcomeRoute,
       routes: {
         // "/": (context) => WelcomePage(),
-        MyRoutes.welcomeRoute: (context) => const WelcomePage(),
+        MyRoutes.welcomeRoute: (context) => WelcomePage(),
         // MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => const LoginPage(),
         // MyRoutes.cartRoute: (context) => CartPage(),

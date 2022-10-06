@@ -1,7 +1,11 @@
+import 'package:demo_hackit/api/google_sign_in.dart';
+import 'package:demo_hackit/pages/home_page.dart';
+import 'package:demo_hackit/views/root_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -209,12 +213,18 @@ class _LoginPageState extends State<LoginPage>
                         ),
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         alignment: Alignment.center,
-                        child: const Text(
-                          "LOGIN",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
+                        child: GestureDetector(
+                          onTap: () => Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                                builder: (context) => const RootApp()),
+                          ),
+                          child: const Text(
+                            "LOGIN",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                     ),
@@ -222,7 +232,7 @@ class _LoginPageState extends State<LoginPage>
                       padding: const EdgeInsets.symmetric(vertical: 18),
                       child: SignInButton(
                         Buttons.Google,
-                        onPressed: () {},
+                        onPressed: signIn,
                         padding:
                             EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                       ),
@@ -424,5 +434,21 @@ class _LoginPageState extends State<LoginPage>
         ),
       ),
     );
+  }
+
+  Future signIn() async {
+    final user = await GoogleSignInApi.login();
+
+    if (user == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Sign In Failed"),
+        ),
+      );
+    } else {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => HomePage(user: user)),
+      );
+    }
   }
 }
