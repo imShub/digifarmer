@@ -447,7 +447,9 @@ class _LoginPageState extends State<LoginPage>
       );
     } else {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => HomePage(user: user)),
+        MaterialPageRoute(
+          builder: (context) => RootApp(user: user),
+        ),
       );
     }
   }

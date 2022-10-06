@@ -20,10 +20,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  void dispose() {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ));
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 220, 255, 185),
-      extendBodyBehindAppBar: true,
+      // extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(0),
         child: AppBar(
@@ -41,6 +49,7 @@ class _HomePageState extends State<HomePage> {
   Widget getBody() {
     var size = MediaQuery.of(context).size;
     var userName = widget.user?.displayName!.split(' ');
+    var userPicUrl = widget.user?.photoUrl;
     return SingleChildScrollView(
       padding: const EdgeInsets.only(bottom: spacer),
       child: Column(
@@ -70,22 +79,24 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         CustomHeading(
                           // title: 'Hi, ${userName[0]}!',
-                          title: 'Hi,${userName != null ? userName : " User"}',
+                          title:
+                              'Hi,${userName != null ? userName[0] + " !" : " User"}',
                           subTitle: 'Let\'s start prediction.',
 
                           color: Colors.white,
                         ),
                         Container(
-                            height: spacer,
-                            width: spacer,
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(100),
-                                child: Image.asset(
-                                  // UserProfile['image'].toString(),
-                                  'assets/images/user.png',
-                                  fit: BoxFit.cover,
-                                  color: Colors.white,
-                                ))),
+                          height: spacer,
+                          width: spacer,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: CircleAvatar(
+                                radius: 40,
+                                backgroundImage: NetworkImage(
+                                  userPicUrl.toString(),
+                                )),
+                          ),
+                        ),
                       ],
                     ),
                     SizedBox(height: spacer),

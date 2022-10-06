@@ -2,9 +2,12 @@ import 'package:demo_hackit/pages/account_page.dart';
 import 'package:demo_hackit/pages/crops_page.dart';
 import 'package:demo_hackit/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class RootApp extends StatefulWidget {
-  const RootApp({super.key});
+  final GoogleSignInAccount? user;
+
+  const RootApp({super.key, this.user});
 
   @override
   _RootAppState createState() => _RootAppState();
@@ -24,9 +27,9 @@ class _RootAppState extends State<RootApp> {
   Widget getBody() {
     List<Widget> pages = [
       // ignore: prefer_const_constructors
-      HomePage(),
-      const CropsPage(),
-      const AccountPage(),
+      HomePage(user: widget.user),
+      CropsPage(),
+      AccountPage(user: widget.user),
     ];
     return IndexedStack(
       index: pageIndex,
@@ -43,7 +46,7 @@ class _RootAppState extends State<RootApp> {
     ];
     return Container(
       width: size.width,
-      height: 90,
+      height: 70,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -61,7 +64,7 @@ class _RootAppState extends State<RootApp> {
         ),
         child: Padding(
           padding:
-              const EdgeInsets.only(left: 40, right: 40, bottom: 10, top: 30),
+              const EdgeInsets.only(left: 40, right: 40, bottom: 10, top: 20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +77,7 @@ class _RootAppState extends State<RootApp> {
                     children: [
                       Image.asset(
                         bottomItems[index],
-                        height: 20,
+                        height: 18,
                         color: pageIndex == index
                             ? Color.fromARGB(255, 97, 131, 63)
                             : Colors.grey,
