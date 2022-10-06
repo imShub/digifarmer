@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.digi_farmer">
+    
+    <uses-permission android:name="android.permission.INTERNET"/> <!-- Add this -->
+
    <application
         android:label="digi_farmer"
         android:name="${applicationName}"

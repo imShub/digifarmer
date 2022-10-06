@@ -22,15 +22,15 @@ class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-    ));
+        // statusBarColor: ,
+        ));
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 220, 255, 185),
+      backgroundColor: Color.fromARGB(255, 229, 243, 213),
       // extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(0),
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.light,
+            statusBarColor: Color.fromARGB(255, 146, 173, 118),
           ),
         ),
       ),
@@ -86,15 +86,16 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white,
                         ),
                         Container(
-                          height: spacer,
-                          width: spacer,
+                          height: 60,
+                          width: 80,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: CircleAvatar(
-                                radius: 40,
-                                backgroundImage: NetworkImage(
-                                  userPicUrl.toString(),
-                                )),
+                              radius: 60,
+                              backgroundImage: NetworkImage(
+                                userPicUrl.toString(),
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -104,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                     // search
                     CustomSearchField(
                       hintField: 'Try "Yeild Prediction"',
-                      backgroundColor: Color.fromARGB(255, 178, 212, 145),
+                      backgroundColor: Color.fromARGB(255, 203, 233, 176),
                     ),
                     SizedBox(height: spacer - 30.0),
                   ],
