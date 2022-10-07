@@ -114,9 +114,6 @@ class _DiseaseDetectionState extends State<DiseaseDetection> {
                     ],
                   ),
                 ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
           FloatingActionButton(
             tooltip: 'Pick Image',
             onPressed: pickImage,
@@ -126,6 +123,14 @@ class _DiseaseDetectionState extends State<DiseaseDetection> {
               color: Colors.white,
             ),
           ),
+          // IconButton(
+          //   onPressed: pickImage,
+          //   icon: Icon(
+          //     Icons.add_a_photo,
+          //     size: 20,
+          //     color: Colors.white,
+          //   ),
+          // ),
         ],
       ),
     );
