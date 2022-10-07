@@ -28,7 +28,7 @@ class _RootAppState extends State<RootApp> {
     List<Widget> pages = [
       // ignore: prefer_const_constructors
       HomePage(user: widget.user),
-      CropsPage(),
+      CropsPage(user: widget.user),
       AccountPage(user: widget.user),
     ];
     return IndexedStack(

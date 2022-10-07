@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 229, 243, 213),
-      // extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(0),
         child: AppBar(
@@ -91,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: CircleAvatar(
+                              backgroundColor: Colors.white,
                               radius: 60,
                               backgroundImage: NetworkImage(
                                 userPicUrl.toString(),

@@ -1,3 +1,4 @@
+import 'package:demo_hackit/views/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,7 +16,11 @@ class _WelcomePageState extends State<WelcomePage> {
 
   moveToHome(BuildContext context) async {
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushReplacementNamed(context, MyRoutes.loginRoute);
+    await Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => LoginPage(),
+        ));
   }
 
   @override

@@ -235,6 +235,9 @@ class _LoginPageState extends State<LoginPage>
                               EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                         ),
                       ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                     ],
                   ),
                 ),

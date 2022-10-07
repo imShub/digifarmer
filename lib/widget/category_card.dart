@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class CategoryCard extends StatelessWidget {
   final String? imgSrc;
   final String? title;
-  final Function? press;
+  final double? fSize;
+  final void Function()? press;
   const CategoryCard({
     Key? key,
     this.imgSrc,
     this.title,
     this.press,
+    this.fSize,
   }) : super(key: key);
 
   @override
@@ -16,12 +18,12 @@ class CategoryCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(13),
       child: Container(
-        // padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(13),
           boxShadow: [
-            BoxShadow(
+            const BoxShadow(
               offset: Offset(0, 17),
               blurRadius: 17,
               spreadRadius: -23,
@@ -32,19 +34,28 @@ class CategoryCard extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () {},
+            onTap: press,
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(18.0),
               child: Column(
                 children: <Widget>[
-                  Spacer(),
-                  Image.asset(imgSrc.toString()),
-                  Spacer(),
+                  const Spacer(),
+                  Hero(
+                    tag: imgSrc.toString(),
+                    child: Image.asset(
+                      imgSrc.toString(),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  const Spacer(flex: 4),
                   Text(
                     title.toString(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Color.fromARGB(255, 59, 80, 36), fontSize: 20),
+                      color: Color.fromARGB(255, 83, 128, 36),
+                      fontSize: fSize == null ? 20 : fSize,
+                      fontWeight: FontWeight.bold,
+                    ),
                   )
                 ],
               ),
