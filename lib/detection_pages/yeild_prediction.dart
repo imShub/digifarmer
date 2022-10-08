@@ -29,7 +29,6 @@ class _YieldPredictionState extends State<YieldPrediction> {
       "season": seasonNameController,
       "area": areaNameController,
     });
-    print(response.body); //Just for checking
   }
 
   //Getting json output from the server
@@ -37,14 +36,13 @@ class _YieldPredictionState extends State<YieldPrediction> {
   var img;
   final url2 = "http://127.0.0.1:5000/dataupload";
   void fetchPosts() async {
-      final response2 = await get(Uri.parse(url2));
-      final jsonData = jsonDecode(response2.body);
-      final imagefile =
-          Image.network("http://127.0.0.1:5000/yieldimg/img.png");
-      setState(() {
-        _postsJson = jsonData;
-        img = imagefile;
-      });
+    final response2 = await get(Uri.parse(url2));
+    final jsonData = jsonDecode(response2.body);
+    final imagefile = Image.network("http://127.0.0.1:5000/yieldimg/img.png");
+    setState(() {
+      _postsJson = jsonData;
+      img = imagefile;
+    });
   }
 
   @override
@@ -116,17 +114,17 @@ class _YieldPredictionState extends State<YieldPrediction> {
                     child: Text('Submit'),
                     onPressed: postData,
                   ),
-                  img ? img : Container(),
+                  img != null ? img : Container(),
                 ],
               ),
             )
           ],
         ));
-
   }
+
   @override
-void initState() {
-  super.initState();
-  fetchPosts();
-}
+  void initState() {
+    super.initState();
+    fetchPosts();
+  }
 }

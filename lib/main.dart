@@ -1,4 +1,3 @@
-import 'package:demo_hackit/views/root_app.dart';
 import 'package:demo_hackit/views/welcome_page.dart';
 import 'package:flutter/material.dart';
 

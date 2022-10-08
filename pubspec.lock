@@ -178,7 +178,7 @@ packages:
     source: hosted
     version: "9.2.0"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"

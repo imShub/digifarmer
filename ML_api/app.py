@@ -13,6 +13,10 @@ from sklearn.ensemble import RandomForestRegressor
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
+# @app.before_request
+# def before_request_func():
+#     global something
+
 # main index page route
 @app.route('/')
 def home():
@@ -87,6 +91,8 @@ def jsonPost(uuid):
     # plt.show()
     
     print(content['district'])
+    global something
+    something=1
     return jsonify({"uuid":uuid})
 
 
@@ -94,6 +100,7 @@ def jsonPost(uuid):
 
 @app.route('/dataupload',methods=['GET'])
 def uploadData():
+    global something
     while(True):
         if something == 1:
             break
@@ -101,6 +108,7 @@ def uploadData():
             "Run" : "Yes"
         }
     return jsonify(data)
+
 
 
 
