@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:demo_hackit/theme/padding.dart';
 import 'package:demo_hackit/util/model_locations.dart';
+import 'package:demo_hackit/widget/custom_heading.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
@@ -138,6 +140,17 @@ class _DiseaseDetectionState extends State<DiseaseDetection> {
                     ],
                   ),
                 ),
+          !_loading && _image == null
+              ? Center(
+                  child: CustomHeading(
+                      subTitle: " to Detect Disease in ${widget.title} Crops",
+                      title: "Select an Image",
+                      color: Color.fromARGB(255, 75, 117, 32)),
+                )
+              : Container(
+                  height: smallSpacer,
+                ),
+          SizedBox(height: spacer),
           FloatingActionButton(
             tooltip: 'Pick Image',
             onPressed: pickImage,

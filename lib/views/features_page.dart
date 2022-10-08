@@ -69,7 +69,7 @@ class _FeaturesPageState extends State<FeaturesPage> {
             ],
           ),
           const SizedBox(
-            height: 20,
+            height: spacer,
           ),
           GestureDetector(
             onTap: () {},

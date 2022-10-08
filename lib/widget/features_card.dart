@@ -16,7 +16,7 @@ class _FeaturesCardState extends State<FeaturesCard> {
     var size = MediaQuery.of(context).size;
 
     return Card(
-      color: Color.fromARGB(255, 237, 255, 221),
+      color: Color.fromARGB(255, 250, 255, 246),
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(40), // if you need this
