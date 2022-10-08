@@ -105,6 +105,7 @@ class _FeaturesPageState extends State<FeaturesPage> {
                   MaterialPageRoute(
                     builder: (context) => DiseaseDetection(
                       title: widget.title,
+                      category: widget.title,
                     ),
                   ));
             },

@@ -1,13 +1,16 @@
 import 'dart:io';
 
+import 'package:demo_hackit/util/model_locations.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 
 class DiseaseDetection extends StatefulWidget {
   final String title;
+  final String category;
 
-  const DiseaseDetection({super.key, required this.title});
+  const DiseaseDetection(
+      {super.key, required this.title, required this.category});
 
   @override
   _DiseaseDetectionState createState() => _DiseaseDetectionState();
@@ -32,11 +35,31 @@ class _DiseaseDetectionState extends State<DiseaseDetection> {
   }
 
   loadModel() async {
-    await Tflite.loadModel(
-      model: "assets/model/disease/cotton.tflite",
-      labels: "assets/model/disease/cottonlabels.txt",
-      numThreads: 1,
-    );
+    if (widget.category == "Rice") {
+      await Tflite.loadModel(
+        model: MyModels.riceDiseaseModel,
+        labels: MyModels.riceDiseasetxt,
+        numThreads: 1,
+      );
+    } else if (widget.category == "Wheat") {
+      await Tflite.loadModel(
+        model: MyModels.wheatDiseaseModel,
+        labels: MyModels.wheatDiseasetxt,
+        numThreads: 1,
+      );
+    } else if (widget.category == "Cotton") {
+      await Tflite.loadModel(
+        model: MyModels.cottonDiseaseModel,
+        labels: MyModels.cottonDiseasetxt,
+        numThreads: 1,
+      );
+    } else if (widget.category == "Sugarcane") {
+      await Tflite.loadModel(
+        model: MyModels.sugarcaneDiseaseModel,
+        labels: MyModels.sugarcaneDiseasetxt,
+        numThreads: 1,
+      );
+    }
   }
 
   classifyImage(File image) async {
@@ -72,6 +95,7 @@ class _DiseaseDetectionState extends State<DiseaseDetection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterTop,
       backgroundColor: Color.fromARGB(255, 229, 243, 213),
       appBar: AppBar(
         title: Text(
@@ -87,10 +111,7 @@ class _DiseaseDetectionState extends State<DiseaseDetection> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           _loading
-              ? Container(
-                  height: 300,
-                  width: 300,
-                )
+              ? Center(child: CircularProgressIndicator())
               : Container(
                   margin: EdgeInsets.all(20),
                   width: MediaQuery.of(context).size.width,
@@ -103,7 +124,10 @@ class _DiseaseDetectionState extends State<DiseaseDetection> {
                         height: 20,
                       ),
                       _image == null
-                          ? Container()
+                          ? Visibility(
+                              child: Container(),
+                              visible: false,
+                            )
                           : _outputs != null
                               ? Text(
                                   _outputs![0]["label"],

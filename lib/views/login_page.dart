@@ -55,6 +55,17 @@ class _LoginPageState extends State<LoginPage>
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 178, 212, 145),
+        extendBodyBehindAppBar: true,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(0),
+          child: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            systemOverlayStyle: const SystemUiOverlayStyle(
+              statusBarColor: Color.fromARGB(255, 146, 173, 118),
+            ),
+          ),
+        ),
         body: Stack(
           children: [
             //Decoration
@@ -182,7 +193,6 @@ class _LoginPageState extends State<LoginPage>
                             border: InputBorder.none,
                             suffixIcon: IconButton(
                                 onPressed: () {
-                                  //add Icon button at end of TextField
                                   setState(() {
                                     //refresh UI
                                     if (passHide) {

@@ -56,7 +56,7 @@ class _WelcomePageState extends State<WelcomePage> {
               child: const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "An Iniciative towrds",
+                  "An Iniciative towards",
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     color: Color(0xff446129),

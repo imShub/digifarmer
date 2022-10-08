@@ -58,7 +58,7 @@ class _RootAppState extends State<RootApp> {
         ],
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20.0),
           topRight: Radius.circular(20.0),
         ),
@@ -82,7 +82,7 @@ class _RootAppState extends State<RootApp> {
                             ? Color.fromARGB(255, 97, 131, 63)
                             : Colors.grey,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       (pageIndex == index)
