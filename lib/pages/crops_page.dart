@@ -91,7 +91,7 @@ class _CropsPageState extends State<CropsPage> {
                       hintField: 'Try "Rice"',
                       backgroundColor: Color.fromARGB(255, 203, 233, 176),
                     ),
-                    const SizedBox(height: spacer - 10),
+                    const SizedBox(height: spacer - 30),
                     Column(
                       children: [
                         GridView.count(

@@ -1,4 +1,5 @@
 import 'package:demo_hackit/detection_pages/disease_detection.dart';
+import 'package:demo_hackit/detection_pages/weed_detection.dart';
 import 'package:demo_hackit/pages/account_page.dart';
 import 'package:demo_hackit/pages/home_page.dart';
 import 'package:demo_hackit/theme/padding.dart';
@@ -122,7 +123,16 @@ class _FeaturesPageState extends State<FeaturesPage> {
             height: 20,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WeedDetection(
+                      title: widget.title,
+                      category: widget.title,
+                    ),
+                  ));
+            },
             child: FeaturesCard(
               icon: Icon(
                 Icons.search_sharp,
