@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:demo_hackit/theme/padding.dart';
 import 'package:demo_hackit/widget/custom_heading.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class YieldPrediction extends StatefulWidget {
   final String title;
@@ -14,9 +17,35 @@ class YieldPrediction extends StatefulWidget {
 }
 
 class _YieldPredictionState extends State<YieldPrediction> {
-  final TextEditingController districtNameController = TextEditingController();
-  final TextEditingController seasonNameController = TextEditingController();
-  final TextEditingController areaNameController = TextEditingController();
+  final districtNameController = TextEditingController();
+  final seasonNameController = TextEditingController();
+  final areaNameController = TextEditingController();
+
+  // Posting json to the server
+  final url = "http://127.0.0.1:5000/jsonPost";
+  void postData() async {
+    final response = await post(Uri.parse(url), body: {
+      "district": districtNameController,
+      "season": seasonNameController,
+      "area": areaNameController,
+    });
+    print(response.body); //Just for checking
+  }
+
+  //Getting json output from the server
+  var _postsJson;
+  var img;
+  final url2 = "http://127.0.0.1:5000/dataupload";
+  void fetchPosts() async {
+      final response2 = await get(Uri.parse(url2));
+      final jsonData = jsonDecode(response2.body);
+      final imagefile =
+          Image.network("http://127.0.0.1:5000/yieldimg/img.png");
+      setState(() {
+        _postsJson = jsonData;
+        img = imagefile;
+      });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,12 +114,19 @@ class _YieldPredictionState extends State<YieldPrediction> {
                   ),
                   ElevatedButton(
                     child: Text('Submit'),
-                    onPressed: () {},
+                    onPressed: postData,
                   ),
+                  img ? img : Container(),
                 ],
               ),
             )
           ],
         ));
+
   }
+  @override
+void initState() {
+  super.initState();
+  fetchPosts();
+}
 }
