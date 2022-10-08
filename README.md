@@ -1,16 +1,5 @@
-# digi_farmer
+# DigiFarmer
 
-A new Flutter project.
+## Introducton
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+DigiFarmer is an Artificial Intelligence and Machine Learning based project which can perform various operations/functions related to farming prediction such as Crop Quality, Yeild Prediction, Disease Detection and Weed Detection, etc. This Project is build using Flutter with dart and for backend we used the ML model's as TenserflowLite and integrated in our flutter project.
