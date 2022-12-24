@@ -6,3 +6,4 @@ DigiFarmer is an Artificial Intelligence and Machine Learning based project whic
 
 
 ## Preview Of Application
+<img src="https://github.com/imShub/digifarmer/blob/master/Screenshot_1664776073.png" alt="ScreenShot 1"/>
