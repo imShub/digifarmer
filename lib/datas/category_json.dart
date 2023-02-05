@@ -6,11 +6,6 @@ const List CoursesJson = [
   },
   {
     'image':
-        'https://i0.wp.com/techinformed.com/wp-content/uploads/2022/02/Myfarmweb.webp?fit=1600%2C1067&ssl=1',
-    'title': 'Yeild Prediction',
-  },
-  {
-    'image':
         'https://www.letsnurture.com/wp-content/uploads/2021/02/Plant-disease-classifier-with-ai-blog-banner.jpg',
     'title': "Crop's Disease Detection ",
   },
@@ -18,5 +13,10 @@ const List CoursesJson = [
     'image':
         'https://media.springernature.com/lw685/springer-static/image/art%3A10.1007%2Fs43154-020-00001-w/MediaObjects/43154_2020_1_Fig4_HTML.jpg',
     'title': 'Weed Detection',
+  },
+  {
+    'image':
+        'https://i0.wp.com/techinformed.com/wp-content/uploads/2022/02/Myfarmweb.webp?fit=1600%2C1067&ssl=1',
+    'title': 'Yeild Prediction',
   },
 ];

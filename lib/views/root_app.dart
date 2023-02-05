@@ -4,6 +4,8 @@ import 'package:demo_hackit/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../pages/weather_page.dart';
+
 class RootApp extends StatefulWidget {
   final GoogleSignInAccount? user;
 
@@ -29,6 +31,7 @@ class _RootAppState extends State<RootApp> {
       // ignore: prefer_const_constructors
       HomePage(user: widget.user),
       CropsPage(user: widget.user),
+      WeatherPage(user: widget.user),
       AccountPage(user: widget.user),
     ];
     return IndexedStack(
@@ -42,6 +45,7 @@ class _RootAppState extends State<RootApp> {
     List bottomItems = [
       "assets/images/home.png",
       "assets/images/leaves.png",
+      "assets/images/rainy-day.png",
       "assets/images/user.png",
     ];
     return Container(

@@ -101,29 +101,6 @@ class _FeaturesPageState extends State<FeaturesPage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => YieldPrediction(
-                      title: widget.title,
-                      category: widget.title,
-                    ),
-                  ));
-            },
-            child: FeaturesCard(
-              icon: Icon(
-                Icons.online_prediction,
-                size: 38,
-                color: Color.fromARGB(255, 161, 207, 115),
-              ),
-              title: " Yield Prediction",
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
                     builder: (context) => DiseaseDetection(
                       title: widget.title,
                       category: widget.title,

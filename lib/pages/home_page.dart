@@ -21,7 +21,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
         // statusBarColor: ,
         ));
     super.dispose();
@@ -30,14 +30,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 229, 243, 213),
+      backgroundColor: const Color.fromARGB(255, 229, 243, 213),
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: const Size.fromHeight(0),
         child: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Color.fromARGB(255, 146, 173, 118),
           ),
         ),
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                     width: size.width,
                     height: 300.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 75, 117, 32),
                     )),
               ),
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                     const EdgeInsets.only(left: appPadding, right: appPadding),
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: spacer + 24),
+                    const SizedBox(height: spacer + 24),
 
                     //heading
                     Row(
@@ -101,20 +101,20 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    SizedBox(height: spacer),
+                    const SizedBox(height: spacer),
 
                     // search
-                    CustomSearchField(
-                      hintField: 'Try "Yeild Prediction"',
+                    const CustomSearchField(
+                      hintField: 'Try "Disease Detection"',
                       backgroundColor: Color.fromARGB(255, 203, 233, 176),
                     ),
-                    SizedBox(height: spacer - 30.0),
+                    const SizedBox(height: spacer - 30.0),
                   ],
                 ),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: smallSpacer,
           ),
           //feature courses
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          SizedBox(height: smallSpacer),
+          const SizedBox(height: smallSpacer),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(
@@ -152,9 +152,9 @@ class _HomePageState extends State<HomePage> {
               }),
             ),
           ),
-          SizedBox(height: spacer - 20.0),
+          const SizedBox(height: spacer - 20.0),
 
-          SizedBox(height: spacer - 10.0),
+          const SizedBox(height: spacer - 10.0),
         ],
       ),
     );
