@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:demo_hackit/theme/padding.dart';
-import 'package:demo_hackit/widget/custom_heading.dart';
+import 'package:digi_farmer/theme/padding.dart';
+import 'package:digi_farmer/widget/custom_heading.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 

@@ -1,6 +1,6 @@
-import 'package:demo_hackit/pages/account_page.dart';
-import 'package:demo_hackit/pages/crops_page.dart';
-import 'package:demo_hackit/pages/home_page.dart';
+import 'package:digi_farmer/pages/account_page.dart';
+import 'package:digi_farmer/pages/crops_page.dart';
+import 'package:digi_farmer/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 

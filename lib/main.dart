@@ -1,4 +1,4 @@
-import 'package:demo_hackit/views/welcome_page.dart';
+import 'package:digi_farmer/views/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 import 'util/routes.dart';

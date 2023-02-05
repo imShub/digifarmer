@@ -1,4 +1,4 @@
-import 'package:demo_hackit/views/login_page.dart';
+import 'package:digi_farmer/views/login_page.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {

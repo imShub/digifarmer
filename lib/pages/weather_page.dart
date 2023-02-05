@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:demo_hackit/controller/global_controller.dart';
+import 'package:digi_farmer/controller/global_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';

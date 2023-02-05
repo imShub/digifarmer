@@ -1,10 +1,10 @@
-import 'package:demo_hackit/datas/category_json.dart';
-import 'package:demo_hackit/theme/padding.dart';
-import 'package:demo_hackit/widget/clipper.dart';
-import 'package:demo_hackit/widget/custom_category_card.dart';
-import 'package:demo_hackit/widget/custom_heading.dart';
-import 'package:demo_hackit/widget/custom_search_feild.dart';
-import 'package:demo_hackit/widget/custom_title.dart';
+import 'package:digi_farmer/datas/category_json.dart';
+import 'package:digi_farmer/theme/padding.dart';
+import 'package:digi_farmer/widget/clipper.dart';
+import 'package:digi_farmer/widget/custom_category_card.dart';
+import 'package:digi_farmer/widget/custom_heading.dart';
+import 'package:digi_farmer/widget/custom_search_feild.dart';
+import 'package:digi_farmer/widget/custom_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';

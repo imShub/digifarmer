@@ -1,12 +1,12 @@
-import 'package:demo_hackit/detection_pages/crop_quality.dart';
-import 'package:demo_hackit/detection_pages/disease_detection.dart';
-import 'package:demo_hackit/detection_pages/weed_detection.dart';
-import 'package:demo_hackit/detection_pages/yeild_prediction.dart';
-import 'package:demo_hackit/pages/account_page.dart';
-import 'package:demo_hackit/pages/home_page.dart';
-import 'package:demo_hackit/theme/padding.dart';
-import 'package:demo_hackit/widget/clipper.dart';
-import 'package:demo_hackit/widget/features_card.dart';
+import 'package:digi_farmer/detection_pages/crop_quality.dart';
+import 'package:digi_farmer/detection_pages/disease_detection.dart';
+import 'package:digi_farmer/detection_pages/weed_detection.dart';
+import 'package:digi_farmer/detection_pages/yeild_prediction.dart';
+import 'package:digi_farmer/pages/account_page.dart';
+import 'package:digi_farmer/pages/home_page.dart';
+import 'package:digi_farmer/theme/padding.dart';
+import 'package:digi_farmer/widget/clipper.dart';
+import 'package:digi_farmer/widget/features_card.dart';
 import 'package:flutter/material.dart';
 
 class FeaturesPage extends StatefulWidget {

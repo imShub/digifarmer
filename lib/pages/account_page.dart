@@ -1,5 +1,5 @@
-import 'package:demo_hackit/api/google_sign_in.dart';
-import 'package:demo_hackit/views/login_page.dart';
+import 'package:digi_farmer/api/google_sign_in.dart';
+import 'package:digi_farmer/views/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';

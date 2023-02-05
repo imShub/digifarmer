@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:demo_hackit/theme/padding.dart';
-import 'package:demo_hackit/util/model_locations.dart';
-import 'package:demo_hackit/widget/custom_heading.dart';
+import 'package:digi_farmer/theme/padding.dart';
+import 'package:digi_farmer/util/model_locations.dart';
+import 'package:digi_farmer/widget/custom_heading.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
