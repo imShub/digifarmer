@@ -149,15 +149,17 @@ class CropQualityState extends State<CropQuality> {
           Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.only(
+                right: 10,
+              ),
               child: Container(
                 height: 50,
-                width: 200,
+                width: 130,
                 decoration: BoxDecoration(
                     color: Colors.grey[300],
                     borderRadius: BorderRadius.circular(15)),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(5),
                   child: DropdownButton<int>(
                       value: soil_type,
                       items: const [
@@ -244,7 +246,7 @@ class CropQualityState extends State<CropQuality> {
                   padding: EdgeInsets.all(5),
                   child: Container(
                     height: 50,
-                    width: 150,
+                    width: 170,
                     decoration: BoxDecoration(
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(15)),
