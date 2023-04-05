@@ -97,6 +97,20 @@ class _FeaturesPageState extends State<FeaturesPage> {
             height: 20,
           ),
           GestureDetector(
+            onTap: () {},
+            child: FeaturesCard(
+              icon: Icon(
+                Icons.online_prediction,
+                size: 38,
+                color: Color.fromARGB(255, 161, 207, 115),
+              ),
+              title: " Yeild Prediction",
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          GestureDetector(
             onTap: () {
               Navigator.push(
                   context,

@@ -229,21 +229,10 @@ class _WeatherPageState extends State<WeatherPage> {
   }
 
   List<Color> getcolor() {
-    if (hour >= 6 && hour <= 11) {
-      return [
-        const Color(0xFF83eaf1),
-        const Color(0xFF3eadcf)
-      ]; //const Color(0xFF83eaf1), const Color(0xFF3eadcf)
-    } else if (hour > 11 && hour <= 16) {
-      return [const Color(0xFFFFDF00), const Color(0xFFF6D108)];
-    } else if (hour > 16 && hour < 19) {
-      return [
-        Color(0xFF4e54c8),
-        const Color(0xFF9795ef),
-      ];
-    } else {
-      return [const Color(0xFF001D37), const Color(0xFF01162E)];
-    }
+    return [
+      Color.fromARGB(255, 149, 241, 149),
+      Color.fromARGB(255, 75, 117, 32),
+    ]; //const Color(0xFF83eaf1), const Color(0xFF3eadcf)
   }
 
   String getWeatherIcon(int condition) {
