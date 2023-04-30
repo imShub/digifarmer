@@ -91,7 +91,8 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, top: 10, right: 10),
                 child: Text(
-                  "lorem isum dolror ammmet lorem isum dolror ammmet lorem isum dolror ammmet",
+                  // "DigiFarmer provides various tools that can help farmers with crop quality prediction, disease detection, yield prediction, weed detection, weather detection and prediction, and much more.",
+                  "The power to manage your farm is just a tap away with our app!",
                   textWidthBasis: TextWidthBasis.longestLine,
                   overflow: TextOverflow.clip,
                   softWrap: true,

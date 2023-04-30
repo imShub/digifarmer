@@ -557,8 +557,11 @@ class CropQualityState extends State<CropQuality> {
                               Row(
                                 children: [
                                   const Padding(
-                                    padding: EdgeInsets.all(15.0),
+                                    padding: EdgeInsets.all(16.0),
                                     child: CircleAvatar(
+                                      backgroundImage: AssetImage(
+                                        'assets/images/app-logo.png',
+                                      ),
                                       radius: 50,
                                     ),
                                   ),
@@ -621,7 +624,7 @@ class CropQualityState extends State<CropQuality> {
     }
     print(pesticide_week);
     final url = Uri.parse(
-        'http://127.0.0.1:5000&b=$type_of_crop&c=$soil_type&d=$pesticide_count&e=$pesticide_week&f=${random.nextInt(50)}&g=$a1&h=$a2&i=$a3&k=0&l=0&m=1');
+        'http://karanpatra203.pythonanywhere.com/predict?a=${random.nextInt(4097 - 150) + 150}&b=$type_of_crop&c=$soil_type&d=$pesticide_count&e=$pesticide_week&f=${random.nextInt(50)}&g=$a1&h=$a2&i=$a3&k=0&l=0&m=1');
     print(url);
     final headers = {"Content-type": "application/json"};
     final json =
