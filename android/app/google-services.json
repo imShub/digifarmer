@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "643236272873",
+    "project_id": "digi-farmer-364606",
+    "storage_bucket": "digi-farmer-364606.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643236272873:android:2c497bb2ce05f42a67ae78",
+        "android_client_info": {
+          "package_name": "com.example.digi_farmer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643236272873-n3ghuelkjj476g38jts9je0ed5vub78r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.digi_farmer",
+            "certificate_hash": "3507274bbb09e681dac4bdb48f65e365f9c118e7"
+          }
+        },
+        {
+          "client_id": "643236272873-n3uip8d6ujblb7fn2ps01dd6dhnchcog.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMIQpZx0N8vAo1Oqw2I1OSR-sZR-cKDII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643236272873-n3uip8d6ujblb7fn2ps01dd6dhnchcog.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "643236272873-qek5ng0ohg7abig4ane7rlp0b09frocg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.digiFarmer"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

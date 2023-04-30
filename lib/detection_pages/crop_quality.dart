@@ -36,13 +36,16 @@ class CropQualityState extends State<CropQuality> {
                 ),
                 const CircleAvatar(
                   radius: 20,
+                  foregroundColor: Colors.black,
                   backgroundColor: Colors.black,
-                  backgroundImage: AssetImage("assets/images/app-logo.png"),
+                  backgroundImage: AssetImage(
+                    'assets/images/app-logo.png',
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 300,
+                    width: 290,
                     height: 50,
                     decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 75, 117, 32),
@@ -50,13 +53,20 @@ class CropQualityState extends State<CropQuality> {
                           topLeft: Radius.circular(25),
                           bottomRight: Radius.circular(25)),
                     ),
-                    child: Center(
-                      child: Text(
-                        'What Type of Crop are you growing?',
-                        style: GoogleFonts.poppins(
-                            color: Colors.white, fontSize: 16),
-                      ),
-                    ),
+                    child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Text(
+                              'What Type of Crop are you growing?',
+                              style: TextStyle(
+                                  fontFamily: GoogleFonts.poppins().fontFamily,
+                                  color: Colors.white,
+                                  fontSize: 16),
+                            ),
+                          ),
+                        )),
                   ),
                 ),
               ],
@@ -65,25 +75,25 @@ class CropQualityState extends State<CropQuality> {
           Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(10),
               child: Container(
                 height: 50,
-                width: 130,
+                width: 150,
                 decoration: BoxDecoration(
                     color: Colors.grey[300],
                     borderRadius: BorderRadius.circular(15)),
                 child: Padding(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   child: DropdownButton<int>(
                       value: type_of_crop,
                       items: const [
                         DropdownMenuItem(
-                          child: Text("Food Crops"),
                           value: 0,
+                          child: Text("Food Crops"),
                         ),
                         DropdownMenuItem(
-                          child: Text("Cash Crops"),
                           value: 1,
+                          child: Text("Cash Crops"),
                         ),
                       ],
                       onChanged: (int? value) {
@@ -96,7 +106,7 @@ class CropQualityState extends State<CropQuality> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Align(
                 alignment: Alignment.topRight,
                 child: ElevatedButton(
@@ -104,7 +114,7 @@ class CropQualityState extends State<CropQuality> {
                     count = 2;
                     setState(() {});
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 )),
           )
         ],
@@ -120,13 +130,16 @@ class CropQualityState extends State<CropQuality> {
                 ),
                 const CircleAvatar(
                   radius: 20,
+                  foregroundColor: Colors.black,
                   backgroundColor: Colors.black,
-                  backgroundImage: AssetImage("assets/images/app-logo.png"),
+                  backgroundImage: AssetImage(
+                    'assets/images/app-logo.png',
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 300,
+                    width: 290,
                     height: 50,
                     decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 75, 117, 32),
@@ -149,27 +162,25 @@ class CropQualityState extends State<CropQuality> {
           Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: const EdgeInsets.only(
-                right: 10,
-              ),
+              padding: const EdgeInsets.all(10),
               child: Container(
                 height: 50,
-                width: 130,
+                width: 225,
                 decoration: BoxDecoration(
                     color: Colors.grey[300],
                     borderRadius: BorderRadius.circular(15)),
                 child: Padding(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8.0),
                   child: DropdownButton<int>(
                       value: soil_type,
                       items: const [
                         DropdownMenuItem(
-                          child: Text("Alluvial Soil"),
                           value: 0,
+                          child: Text("Alluvial Soil"),
                         ),
                         DropdownMenuItem(
-                          child: Text("Others(Red,Black etc)"),
                           value: 1,
+                          child: Text("Others(Red,Black etc)"),
                         ),
                       ],
                       onChanged: (int? value) {
@@ -182,7 +193,7 @@ class CropQualityState extends State<CropQuality> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Align(
                 alignment: Alignment.topRight,
                 child: ElevatedButton(
@@ -190,7 +201,7 @@ class CropQualityState extends State<CropQuality> {
                     count = 3;
                     setState(() {});
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 )),
           )
         ],
@@ -206,13 +217,16 @@ class CropQualityState extends State<CropQuality> {
                 ),
                 const CircleAvatar(
                   radius: 20,
+                  foregroundColor: Colors.black,
                   backgroundColor: Colors.black,
-                  backgroundImage: AssetImage("assets/images/app-logo.png"),
+                  backgroundImage: AssetImage(
+                    'assets/images/app-logo.png',
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 300,
+                    width: 220,
                     height: 50,
                     decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 75, 117, 32),
@@ -238,15 +252,15 @@ class CropQualityState extends State<CropQuality> {
               padding: const EdgeInsets.all(10),
               child: Container(
                 height: 50,
-                width: 130,
+                width: 170,
                 decoration: BoxDecoration(
                     color: Colors.grey[300],
                     borderRadius: BorderRadius.circular(15)),
                 child: Padding(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   child: Container(
                     height: 50,
-                    width: 170,
+                    width: 150,
                     decoration: BoxDecoration(
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(15)),
@@ -254,16 +268,16 @@ class CropQualityState extends State<CropQuality> {
                         value: pesticide_use,
                         items: const [
                           DropdownMenuItem(
-                            child: Text("Never"),
                             value: 0,
+                            child: Text("Never"),
                           ),
                           DropdownMenuItem(
-                            child: Text("Previously Used"),
                             value: 1,
+                            child: Text("Previously Used"),
                           ),
                           DropdownMenuItem(
-                            child: Text("Currently Using"),
                             value: 2,
+                            child: Text("Currently Using"),
                           ),
                         ],
                         onChanged: (int? value) {
@@ -277,7 +291,7 @@ class CropQualityState extends State<CropQuality> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Align(
                 alignment: Alignment.topRight,
                 child: ElevatedButton(
@@ -285,7 +299,7 @@ class CropQualityState extends State<CropQuality> {
                     count = 4;
                     setState(() {});
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 )),
           )
         ],
@@ -301,13 +315,16 @@ class CropQualityState extends State<CropQuality> {
                 ),
                 const CircleAvatar(
                   radius: 20,
+                  foregroundColor: Colors.black,
                   backgroundColor: Colors.black,
-                  backgroundImage: AssetImage("assets/images/app-logo.png"),
+                  backgroundImage: AssetImage(
+                    'assets/images/app-logo.png',
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 300,
+                    width: 290,
                     height: 50,
                     decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 75, 117, 32),
@@ -330,14 +347,14 @@ class CropQualityState extends State<CropQuality> {
           Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Container(
                   width: 120,
                   height: 50,
                   decoration: BoxDecoration(
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(15)),
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: TextField(
                     keyboardType: TextInputType.number,
                     onChanged: (value) {
@@ -356,7 +373,7 @@ class CropQualityState extends State<CropQuality> {
                     count = 5;
                     setState(() {});
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 )),
           )
         ],
@@ -372,13 +389,16 @@ class CropQualityState extends State<CropQuality> {
                 ),
                 const CircleAvatar(
                   radius: 20,
+                  foregroundColor: Colors.black,
                   backgroundColor: Colors.black,
-                  backgroundImage: AssetImage("assets/images/app-logo.png"),
+                  backgroundImage: AssetImage(
+                    'assets/images/app-logo.png',
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 300,
+                    width: 290,
                     height: 50,
                     decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 75, 117, 32),
@@ -387,10 +407,13 @@ class CropQualityState extends State<CropQuality> {
                           bottomRight: Radius.circular(25)),
                     ),
                     child: Center(
-                      child: Text(
-                        '   How many weeks did you use pesticide?',
-                        style: GoogleFonts.poppins(
-                            color: Colors.white, fontSize: 16),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: Text(
+                          '   How many weeks did you use pesticide?',
+                          style: GoogleFonts.poppins(
+                              color: Colors.white, fontSize: 16),
+                        ),
                       ),
                     ),
                   ),
@@ -401,14 +424,14 @@ class CropQualityState extends State<CropQuality> {
           Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Container(
                   width: 120,
                   height: 50,
                   decoration: BoxDecoration(
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(15)),
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: TextField(
                     keyboardType: TextInputType.number,
                     onChanged: (value) {
@@ -433,7 +456,7 @@ class CropQualityState extends State<CropQuality> {
                   child: Container(
                     height: 40,
                     width: 350,
-                    color: Color.fromARGB(255, 75, 117, 32),
+                    color: const Color.fromARGB(255, 75, 117, 32),
                     child: Center(
                       child: Text(
                         'Submit',
@@ -453,16 +476,16 @@ class CropQualityState extends State<CropQuality> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          widget.title.toString() + " Crop Quality",
+          "${widget.title} Crop Quality",
         ),
         elevation: 0.0,
-        backgroundColor: Color.fromARGB(255, 75, 117, 32),
-        foregroundColor: Color.fromARGB(255, 166, 231, 101),
+        backgroundColor: const Color.fromARGB(255, 75, 117, 32),
+        foregroundColor: const Color.fromARGB(255, 166, 231, 101),
         // centerTitle: true,
         // ignore: prefer_const_literals_to_create_immutables
       ),
       extendBodyBehindAppBar: true,
-      backgroundColor: Color.fromARGB(255, 75, 117, 32),
+      backgroundColor: const Color.fromARGB(255, 75, 117, 32),
       body: (isLoading == false && result == false)
           ? Column(
               children: [
@@ -525,7 +548,7 @@ class CropQualityState extends State<CropQuality> {
                       Container(
                           height: 250,
                           width: size.width,
-                          color: Color.fromARGB(255, 75, 117, 32),
+                          color: const Color.fromARGB(255, 75, 117, 32),
                           child: Column(
                             children: [
                               const SizedBox(
@@ -581,7 +604,7 @@ class CropQualityState extends State<CropQuality> {
   }
 
   Future<int> getData() async {
-    Random random = new Random();
+    Random random = Random();
     int a1, a2, a3;
     if (pesticide_count == 0) {
       a1 = 1;

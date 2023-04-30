@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:digi_farmer/controller/global_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
@@ -7,8 +8,28 @@ import 'package:get/get.dart' as GET;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart';
-import 'package:http/src/response.dart';
 import 'package:intl/intl.dart';
+
+class current {
+  var temp;
+  var pressure;
+  var humidity;
+  var weather;
+  var id;
+  var desc;
+  current(this.temp, this.desc, this.weather, this.humidity, this.id,
+      this.pressure);
+}
+
+class forecast {
+  var dt;
+  var max;
+  var humidity;
+  var min;
+  var weather;
+  var desc;
+  forecast(this.dt, this.humidity, this.max, this.min, this.weather, this.desc);
+}
 
 class WeatherPage extends StatefulWidget {
   final GoogleSignInAccount? user;
@@ -29,24 +50,6 @@ class _WeatherPageState extends State<WeatherPage> {
   List<current> weather = [];
 
   int hour = DateTime.now().hour;
-
-  @override
-  void initState() {
-    getAddress(
-      globalController.getLattitude().value,
-      globalController.getLongitude().value,
-    );
-    super.initState();
-  }
-
-  getAddress(lat, lon) async {
-    List<Placemark> placemark = await placemarkFromCoordinates(lat, lon);
-    Placemark place = placemark[0];
-
-    setState(() {
-      city = place.locality!.toString();
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,15 +74,15 @@ class _WeatherPageState extends State<WeatherPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 40,
+                    const SizedBox(
+                      height: 20,
                     ),
                     Padding(
-                      padding: EdgeInsets.all(25),
+                      padding: const EdgeInsets.all(25),
                       child: Text(
                         "Weather",
                         style: GoogleFonts.poppins(
-                            fontSize: 40,
+                            fontSize: 36,
                             color: Colors.white,
                             fontWeight: FontWeight.w500),
                       ),
@@ -87,7 +90,7 @@ class _WeatherPageState extends State<WeatherPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
+                        SizedBox(
                             height: 150,
                             width: 150,
                             child: Image.asset(
@@ -100,12 +103,12 @@ class _WeatherPageState extends State<WeatherPage> {
                             Text(
                               "${(weather[0].temp - 273.15).toStringAsFixed(1)}°",
                               style: GoogleFonts.poppins(
-                                  fontSize: 60, color: Colors.white),
+                                  fontSize: 54, color: Colors.white),
                             ),
                             Text(
                               weather[0].weather,
                               style: GoogleFonts.poppins(
-                                  color: Colors.white, fontSize: 24),
+                                  color: Colors.white, fontSize: 20),
                             ),
                           ],
                         ),
@@ -124,13 +127,13 @@ class _WeatherPageState extends State<WeatherPage> {
                               'Humidity',
                               style: GoogleFonts.poppins(
                                   color: Colors.white,
-                                  fontSize: 24,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
                               "${(weather[0].humidity).toStringAsFixed(1)}%",
                               style: GoogleFonts.poppins(
-                                  fontSize: 50, color: Colors.white),
+                                  fontSize: 44, color: Colors.white),
                             ),
                           ],
                         ),
@@ -141,13 +144,13 @@ class _WeatherPageState extends State<WeatherPage> {
                               'Pressure',
                               style: GoogleFonts.poppins(
                                   color: Colors.white,
-                                  fontSize: 24,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
                               "${(weather[0].pressure)}",
                               style: GoogleFonts.poppins(
-                                  fontSize: 46, color: Colors.white),
+                                  fontSize: 44, color: Colors.white),
                             ),
                           ],
                         ),
@@ -219,7 +222,7 @@ class _WeatherPageState extends State<WeatherPage> {
                               ],
                             );
                           }).toList()),
-                    )
+                    ),
                   ],
                 ),
               );
@@ -228,52 +231,20 @@ class _WeatherPageState extends State<WeatherPage> {
     );
   }
 
+  getAddress(lat, lon) async {
+    List<Placemark> placemark = await placemarkFromCoordinates(lat, lon);
+    Placemark place = placemark[0];
+
+    setState(() {
+      city = place.locality!.toString();
+    });
+  }
+
   List<Color> getcolor() {
     return [
-      Color.fromARGB(255, 149, 241, 149),
-      Color.fromARGB(255, 75, 117, 32),
+      const Color.fromARGB(255, 149, 241, 149),
+      const Color.fromARGB(255, 75, 117, 32),
     ]; //const Color(0xFF83eaf1), const Color(0xFF3eadcf)
-  }
-
-  String getWeatherIcon(int condition) {
-    if (condition < 300) {
-      return 'assets/ic_storm_weather.png';
-    } else if (condition < 400) {
-      return 'assets/ic_rainy_weather.png';
-    } else if (condition < 600) {
-      return 'assets/ic_rainy_weather.png';
-    } else if (condition < 700) {
-      return 'assets/ic_snow_weather.png';
-    } else if (condition < 800) {
-      return 'assets/ic_mostly_cloudy.png';
-    } else if (condition == 800) {
-      return 'assets/ic_clear_day.png';
-    } else if (condition <= 804) {
-      return 'assets/ic_cloudy_weather.png';
-    } else {
-      return 'assets/ic_unknown.png';
-    }
-  }
-
-  Future<Position> _determinePosition() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
-    }
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
-      }
-    }
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
-    }
-    return await Geolocator.getCurrentPosition();
   }
 
   Future<List<forecast>> getweather() async {
@@ -307,25 +278,54 @@ class _WeatherPageState extends State<WeatherPage> {
 
     return z;
   }
-}
 
-class current {
-  var temp;
-  var pressure;
-  var humidity;
-  var weather;
-  var id;
-  var desc;
-  current(this.temp, this.desc, this.weather, this.humidity, this.id,
-      this.pressure);
-}
+  String getWeatherIcon(int condition) {
+    if (condition < 300) {
+      return 'assets/ic_storm_weather.png';
+    } else if (condition < 400) {
+      return 'assets/ic_rainy_weather.png';
+    } else if (condition < 600) {
+      return 'assets/ic_rainy_weather.png';
+    } else if (condition < 700) {
+      return 'assets/ic_snow_weather.png';
+    } else if (condition < 800) {
+      return 'assets/ic_mostly_cloudy.png';
+    } else if (condition == 800) {
+      return 'assets/ic_clear_day.png';
+    } else if (condition <= 804) {
+      return 'assets/ic_cloudy_weather.png';
+    } else {
+      return 'assets/ic_unknown.png';
+    }
+  }
 
-class forecast {
-  var dt;
-  var max;
-  var humidity;
-  var min;
-  var weather;
-  var desc;
-  forecast(this.dt, this.humidity, this.max, this.min, this.weather, this.desc);
+  @override
+  void initState() {
+    getAddress(
+      globalController.getLattitude().value,
+      globalController.getLongitude().value,
+    );
+    super.initState();
+  }
+
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+    return await Geolocator.getCurrentPosition();
+  }
 }

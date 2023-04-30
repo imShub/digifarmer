@@ -1,4 +1,7 @@
 {
-  "python.analysis.typeCheckingMode": "basic"
+  "python.analysis.typeCheckingMode": "basic",
+  "cmake.sourceDirectory": "${workspaceFolder}/linux/flutter",
+  "cmake.configureOnOpen": false,
+  "java.configuration.updateBuildConfiguration": "disabled"
   
 }

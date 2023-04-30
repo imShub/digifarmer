@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>643236272873-qek5ng0ohg7abig4ane7rlp0b09frocg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.643236272873-qek5ng0ohg7abig4ane7rlp0b09frocg</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>643236272873-c329tbvepuuu23urpvup5nvcoo76bgjk.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBRcroPZAzEjmDpL54z-5K_Ug2LckJay_Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>643236272873</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.digiFarmer</string>
+	<key>PROJECT_ID</key>
+	<string>digi-farmer-364606</string>
+	<key>STORAGE_BUCKET</key>
+	<string>digi-farmer-364606.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:643236272873:ios:c3d2f74663f89a3467ae78</string>
+</dict>
+</plist>

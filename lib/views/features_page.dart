@@ -97,7 +97,16 @@ class _FeaturesPageState extends State<FeaturesPage> {
             height: 20,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => YieldPrediction(
+                      title: widget.title,
+                      category: widget.title,
+                    ),
+                  ));
+            },
             child: FeaturesCard(
               icon: Icon(
                 Icons.online_prediction,

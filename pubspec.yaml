@@ -29,20 +29,29 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_bottom_navigation_bar: ^1.2.0
+  animated_notch_bottom_bar: ^0.0.6
+  cloud_firestore: ^4.5.3
   cupertino_icons: ^1.0.2
   dio: ^4.0.6
+  firebase_auth: ^4.4.2
+  firebase_core: ^2.10.0
+  firebase_storage: ^11.1.1
   flutter:
     sdk: flutter
+  flutter_localization: ^0.1.10
   flutter_signin_button: ^2.0.0
+  font_awesome_flutter: ^9.0.0
   geocoding: ^2.0.5
   geolocator: ^9.0.2
   get: ^4.6.5
   google_fonts: ^2.1.0
-  google_sign_in: ^5.4.2
+  google_sign_in: ^6.1.0
   googleapis: ^9.2.0
   http: ^0.13.5
   image_picker: ^0.8.6
-  intl: ^0.18.0
+  intl: ^0.17.0
+  provider: ^6.0.5
   sleek_circular_slider: ^2.0.1
   tflite: ^1.1.2
 

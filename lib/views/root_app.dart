@@ -1,13 +1,19 @@
 import 'package:digi_farmer/pages/account_page.dart';
 import 'package:digi_farmer/pages/crops_page.dart';
 import 'package:digi_farmer/pages/home_page.dart';
+import 'package:digi_farmer/pages/tips_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 
 import '../pages/weather_page.dart';
 
 class RootApp extends StatefulWidget {
-  final GoogleSignInAccount? user;
+  final User? user;
 
   const RootApp({super.key, this.user});
 
@@ -18,11 +24,116 @@ class RootApp extends StatefulWidget {
 class _RootAppState extends State<RootApp> {
   int pageIndex = 0;
 
+  final List<IconData> iconList = [
+    Icons.home,
+    Icons.drafts,
+    Icons.list,
+    Icons.verified_user,
+  ];
+
+  final _pageController = PageController(initialPage: 0);
+
+  int maxCount = 5;
+
+  /// widget list
+  final List<Widget> bottomBarPages = [
+    // ignore: prefer_const_constructors
+    HomePage(),
+    TipsPage(),
+    CropsPage(),
+    WeatherPage(),
+    AccountPage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: getBody(),
-      bottomNavigationBar: getFooter(),
+      body: PageView(
+        controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: List.generate(
+            bottomBarPages.length, (index) => bottomBarPages[index]),
+      ),
+      extendBody: true,
+      bottomNavigationBar: (bottomBarPages.length <= maxCount)
+          ? AnimatedNotchBottomBar(
+              pageController: _pageController,
+              color: Color.fromARGB(255, 75, 117, 32),
+              showLabel: true,
+              itemLabelStyle: TextStyle(
+                color: Color.fromARGB(255, 208, 255, 161),
+                fontSize: 12,
+              ),
+              notchColor: Color.fromARGB(255, 75, 117, 32),
+              bottomBarItems: [
+                const BottomBarItem(
+                  inActiveItem: Icon(
+                    Icons.home_filled,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  activeItem: Icon(
+                    Icons.home_filled,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  itemLabel: 'Home',
+                ),
+                const BottomBarItem(
+                  inActiveItem: Icon(
+                    Icons.list_alt_outlined,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  activeItem: Icon(
+                    Icons.list_alt_outlined,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  itemLabel: 'Tips',
+                ),
+
+                ///svg example
+                BottomBarItem(
+                  inActiveItem: Icon(
+                    CupertinoIcons.tree,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  activeItem: Icon(
+                    CupertinoIcons.tree,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  itemLabel: 'Crops',
+                ),
+                const BottomBarItem(
+                  inActiveItem: Icon(
+                    FontAwesomeIcons.cloudMoonRain,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  activeItem: Icon(
+                    FontAwesomeIcons.cloudMoonRain,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  itemLabel: 'Weather',
+                ),
+                const BottomBarItem(
+                  inActiveItem: Icon(
+                    Icons.account_circle_outlined,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  activeItem: Icon(
+                    Icons.account_circle_outlined,
+                    color: Color.fromARGB(255, 199, 228, 165),
+                  ),
+                  itemLabel: 'Account',
+                ),
+              ],
+              onTap: (index) {
+                /// control your animation using page controller
+                _pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeIn,
+                );
+              },
+            )
+          : null,
     );
   }
 
@@ -31,7 +142,7 @@ class _RootAppState extends State<RootApp> {
       // ignore: prefer_const_constructors
       HomePage(user: widget.user),
       CropsPage(user: widget.user),
-      WeatherPage(user: widget.user),
+      TipsPage(),
       AccountPage(user: widget.user),
     ];
     return IndexedStack(

@@ -1,16 +1,19 @@
 import 'package:digi_farmer/datas/category_json.dart';
+import 'package:digi_farmer/pages/crops_page.dart';
 import 'package:digi_farmer/theme/padding.dart';
 import 'package:digi_farmer/widget/clipper.dart';
 import 'package:digi_farmer/widget/custom_category_card.dart';
 import 'package:digi_farmer/widget/custom_heading.dart';
 import 'package:digi_farmer/widget/custom_search_feild.dart';
 import 'package:digi_farmer/widget/custom_title.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:googleapis/cloudasset/v1.dart';
 
 class HomePage extends StatefulWidget {
-  final GoogleSignInAccount? user;
+  final User? user;
 
   const HomePage({super.key, this.user});
 
@@ -49,7 +52,7 @@ class _HomePageState extends State<HomePage> {
   Widget getBody() {
     var size = MediaQuery.of(context).size;
     var userName = widget.user?.displayName!.split(' ');
-    var userPicUrl = widget.user?.photoUrl;
+    var userPicUrl = widget.user?.photoURL;
     return SingleChildScrollView(
       padding: const EdgeInsets.only(bottom: spacer),
       child: Column(
@@ -80,22 +83,24 @@ class _HomePageState extends State<HomePage> {
                         CustomHeading(
                           // title: 'Hi, ${userName[0]}!',
                           title:
-                              'Hi,${userName != null ? userName[0] + " !" : " User"}',
+                              'Hi,${userName != null ? userName[0] + " !" : " Shubham"}',
                           subTitle: 'Let\'s start prediction.',
 
                           color: Colors.white,
                         ),
                         Container(
-                          height: 60,
-                          width: 80,
+                          height: 85,
+                          width: 85,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: CircleAvatar(
                               backgroundColor: Colors.white,
                               radius: 60,
-                              backgroundImage: NetworkImage(
-                                userPicUrl.toString(),
-                              ),
+                              // maxRadius: 80,
+                              foregroundImage: userPicUrl.toString() == null
+                                  ? NetworkImage(userPicUrl.toString())
+                                  : AssetImage("assets/images/profile-pic.png")
+                                      as ImageProvider,
                             ),
                           ),
                         ),
@@ -142,7 +147,13 @@ class _HomePageState extends State<HomePage> {
                 return Padding(
                   padding: const EdgeInsets.only(right: 15.0, bottom: 20.0),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CropsPage(),
+                          ));
+                    },
                     child: CustomCourseCardExpand(
                       thumbNail: data['image'],
                       title: data['title'],

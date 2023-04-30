@@ -27,8 +27,8 @@ def home():
 
 @app.route('/predict', methods=['GET'])
 def predict():
-    model = joblib.load('C:/Flutter_Projects/digi_farmer/ML_api/lgbm.ml')
-    # model.predict([[188,1,1,0,0.0,0,1,0,0,0,1,0]])
+    model = joblib.load('C:\Flutter_Projects\digi_farmer\ML_api\lgbm.ml')
+    model.predict([[188, 1, 1, 0, 0.0, 0, 1, 0, 0, 0, 1, 0]])
     predict = model.predict([[int(request.args['InsectCount']),
                             int(request.args['CropType']),
                             int(request.args['SoilType']),

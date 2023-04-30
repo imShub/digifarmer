@@ -4,12 +4,13 @@ import 'package:digi_farmer/widget/category_card.dart';
 import 'package:digi_farmer/widget/clipper.dart';
 import 'package:digi_farmer/widget/custom_heading.dart';
 import 'package:digi_farmer/widget/custom_search_feild.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class CropsPage extends StatefulWidget {
-  final GoogleSignInAccount? user;
+  final User? user;
 
   const CropsPage({super.key, this.user});
 
@@ -62,27 +63,20 @@ class _CropsPageState extends State<CropsPage> {
                   children: <Widget>[
                     const SizedBox(height: spacer),
                     //heading
-                    ListView(
-                      shrinkWrap: true,
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "Welcome to",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 167, 221, 113),
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        const Text(
-                          "Crops Category",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 161, 207, 115),
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                    const Text(
+                      "Welcome to",
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 167, 221, 113),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const Text(
+                      "Crops Category",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 161, 207, 115),
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(height: spacer),
 
@@ -91,13 +85,13 @@ class _CropsPageState extends State<CropsPage> {
                       hintField: 'Try "Rice"',
                       backgroundColor: Color.fromARGB(255, 203, 233, 176),
                     ),
-                    const SizedBox(height: spacer - 30),
+                    // const SizedBox(height: spacer - 35),
                     Column(
                       children: [
                         GridView.count(
                           shrinkWrap: true,
                           crossAxisCount: 2,
-                          childAspectRatio: .85,
+                          childAspectRatio: .84,
                           crossAxisSpacing: 20,
                           mainAxisSpacing: 20,
                           children: <Widget>[
@@ -142,7 +136,7 @@ class _CropsPageState extends State<CropsPage> {
                             ),
                             CategoryCard(
                               title: "Sugarcane",
-                              fSize: 16,
+                              fSize: 18,
                               imgSrc: "assets/images/sugar-cane.png",
                               press: () {
                                 Navigator.push(
