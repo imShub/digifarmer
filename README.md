@@ -16,12 +16,12 @@ DigiFarmer is an app that uses AI&ML models to predict crop quality, detect dise
 <p align="left"><img width=25% src="https://github.com/KaranPatra/DIGIFARMER/blob/master/assets/images/app-logo.png"></p>
 
 <p align="left">
-<img width=20% src="https://github.com/KaranPatra/DIGIFARMER/blob/master/assets/images/preview/1.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-<img width=20% src="https://github.com/KaranPatra/DIGIFARMER/blob/master/assets/images/preview/2.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 
-<img width=20% src="https://github.com/KaranPatra/DIGIFARMER/blob/master/assets/images/preview/3.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-<img width=20% src="https://github.com/KaranPatra/DIGIFARMER/blob/master/assets/images/preview/4.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-<img width=20% src="https://github.com/KaranPatra/DIGIFARMER/blob/master/assets/images/preview/5.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-<img width=20% src="https://github.com/KaranPatra/DIGIFARMER/blob/master/assets/images/preview/6.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="https://github.com/imShub/digifarmer/blob/master/assets/images/preview/1.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="https://github.com/imShub/digifarmer/blob/master/assets/images/preview/2.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 
+<img width=20% src="https://github.com/imShub/digifarmer/blob/master/assets/images/preview/3.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="https://github.com/imShub/digifarmer/blob/master/assets/images/preview/4.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="https://github.com/imShub/digifarmer/blob/master/assets/images/preview/5.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<img width=20% src="https://github.com/imShub/digifarmer/blob/master/assets/images/preview/6.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 </p>
 
 ## Tech stack
