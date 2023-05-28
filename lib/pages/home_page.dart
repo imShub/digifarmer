@@ -1,5 +1,6 @@
 import 'package:digi_farmer/datas/category_json.dart';
 import 'package:digi_farmer/pages/crops_page.dart';
+import 'package:digi_farmer/pages/logged_in_home.dart';
 import 'package:digi_farmer/theme/padding.dart';
 import 'package:digi_farmer/widget/clipper.dart';
 import 'package:digi_farmer/widget/custom_category_card.dart';
@@ -12,10 +13,16 @@ import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/cloudasset/v1.dart';
 
-class HomePage extends StatefulWidget {
-  final User? user;
+import '../views/login_page.dart';
+import '../views/root_app.dart';
 
-  const HomePage({super.key, this.user});
+class HomePage extends StatefulWidget {
+  // final User? user;
+  final user = FirebaseAuth.instance.currentUser;
+
+  HomePage({super.key});
+
+  // const HomePage({super.key, this.user});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -45,7 +52,19 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: getBody(),
+      body: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return (Center(child: Text('Something Went Wrong')));
+            } else if (snapshot.hasData) {
+              return RootApp();
+            } else {
+              return LoginPage();
+            }
+          }),
     );
   }
 

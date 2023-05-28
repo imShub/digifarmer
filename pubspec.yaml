@@ -39,7 +39,7 @@ dependencies:
   firebase_storage: ^11.1.1
   flutter:
     sdk: flutter
-  flutter_localization: ^0.1.10
+  flutter_html_to_pdf: ^0.7.0
   flutter_signin_button: ^2.0.0
   font_awesome_flutter: ^9.0.0
   geocoding: ^2.0.5
@@ -48,12 +48,15 @@ dependencies:
   google_fonts: ^2.1.0
   google_sign_in: ^6.1.0
   googleapis: ^9.2.0
-  http: ^0.13.5
+  http: ^0.13.0
   image_picker: ^0.8.6
   intl: ^0.17.0
+  pdf: ^3.9.0
+  printing: ^5.6.5
   provider: ^6.0.5
   sleek_circular_slider: ^2.0.1
   tflite: ^1.1.2
+  url_launcher: ^6.1.11
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -77,6 +80,7 @@ flutter:
     - assets/model/
     - assets/model/disease/
     - assets/model/weed/
+    - assets/images/cardImg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

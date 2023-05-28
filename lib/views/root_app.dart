@@ -1,6 +1,7 @@
 import 'package:digi_farmer/pages/account_page.dart';
 import 'package:digi_farmer/pages/crops_page.dart';
 import 'package:digi_farmer/pages/home_page.dart';
+import 'package:digi_farmer/pages/logged_in_home.dart';
 import 'package:digi_farmer/pages/tips_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,7 +23,7 @@ class RootApp extends StatefulWidget {
 }
 
 class _RootAppState extends State<RootApp> {
-  int pageIndex = 0;
+  int pageIndex = 1;
 
   final List<IconData> iconList = [
     Icons.home,
@@ -35,18 +36,17 @@ class _RootAppState extends State<RootApp> {
 
   int maxCount = 5;
 
-  /// widget list
-  final List<Widget> bottomBarPages = [
-    // ignore: prefer_const_constructors
-    HomePage(),
-    TipsPage(),
-    CropsPage(),
-    WeatherPage(),
-    AccountPage(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    /// widget list
+    final List<Widget> bottomBarPages = [
+      // ignore: prefer_const_constructors
+      LoggedInWidget(),
+      TipsPage(),
+      CropsPage(),
+      WeatherPage(),
+      AccountPage(user: widget.user),
+    ];
     return Scaffold(
       body: PageView(
         controller: _pageController,
@@ -58,13 +58,13 @@ class _RootAppState extends State<RootApp> {
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? AnimatedNotchBottomBar(
               pageController: _pageController,
-              color: Color.fromARGB(255, 75, 117, 32),
+              color: const Color.fromARGB(255, 75, 117, 32),
               showLabel: true,
-              itemLabelStyle: TextStyle(
+              itemLabelStyle: const TextStyle(
                 color: Color.fromARGB(255, 208, 255, 161),
                 fontSize: 12,
               ),
-              notchColor: Color.fromARGB(255, 75, 117, 32),
+              notchColor: const Color.fromARGB(255, 75, 117, 32),
               bottomBarItems: [
                 const BottomBarItem(
                   inActiveItem: Icon(
@@ -90,7 +90,7 @@ class _RootAppState extends State<RootApp> {
                 ),
 
                 ///svg example
-                BottomBarItem(
+                const BottomBarItem(
                   inActiveItem: Icon(
                     CupertinoIcons.tree,
                     color: Color.fromARGB(255, 199, 228, 165),
@@ -140,7 +140,7 @@ class _RootAppState extends State<RootApp> {
   Widget getBody() {
     List<Widget> pages = [
       // ignore: prefer_const_constructors
-      HomePage(user: widget.user),
+      HomePage(),
       CropsPage(user: widget.user),
       TipsPage(),
       AccountPage(user: widget.user),
@@ -168,7 +168,7 @@ class _RootAppState extends State<RootApp> {
           BoxShadow(
             color: Colors.black.withOpacity(0.12),
             blurRadius: 30.0,
-            offset: Offset(0, -10),
+            offset: const Offset(0, -10),
           ),
         ],
       ),
@@ -194,7 +194,7 @@ class _RootAppState extends State<RootApp> {
                         bottomItems[index],
                         height: 18,
                         color: pageIndex == index
-                            ? Color.fromARGB(255, 97, 131, 63)
+                            ? const Color.fromARGB(255, 97, 131, 63)
                             : Colors.grey,
                       ),
                       const SizedBox(
@@ -202,13 +202,14 @@ class _RootAppState extends State<RootApp> {
                       ),
                       (pageIndex == index)
                           ? AnimatedContainer(
-                              duration: Duration(milliseconds: 500),
+                              duration: const Duration(milliseconds: 500),
                               curve: Curves.easeIn,
                               child: Container(
                                 height: 5.0,
                                 width: 20.0,
                                 decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 97, 131, 63),
+                                    color:
+                                        const Color.fromARGB(255, 97, 131, 63),
                                     borderRadius: BorderRadius.circular(100)),
                               ),
                             )

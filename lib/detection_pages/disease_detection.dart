@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:digi_farmer/detection_pages/report_page.dart';
 import 'package:digi_farmer/theme/padding.dart';
 import 'package:digi_farmer/util/model_locations.dart';
 import 'package:digi_farmer/widget/custom_heading.dart';
@@ -98,14 +99,14 @@ class _DiseaseDetectionState extends State<DiseaseDetection> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterTop,
-      backgroundColor: Color.fromARGB(255, 229, 243, 213),
+      backgroundColor: const Color.fromARGB(255, 229, 243, 213),
       appBar: AppBar(
         title: Text(
           widget.title.toString() + " Disease",
         ),
         elevation: 0.0,
-        backgroundColor: Color.fromARGB(255, 75, 117, 32),
-        foregroundColor: Color.fromARGB(255, 166, 231, 101),
+        backgroundColor: const Color.fromARGB(255, 75, 117, 32),
+        foregroundColor: const Color.fromARGB(255, 166, 231, 101),
         // centerTitle: true,
         // ignore: prefer_const_literals_to_create_immutables
       ),
@@ -113,53 +114,88 @@ class _DiseaseDetectionState extends State<DiseaseDetection> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           _loading
-              ? Center(child: CircularProgressIndicator())
+              ? const Center(child: CircularProgressIndicator())
               : Container(
-                  margin: EdgeInsets.all(20),
-                  width: MediaQuery.of(context).size.width,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      _image == null ? Container() : Image.file(_image!),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      _image == null
-                          ? Visibility(
-                              child: Container(),
-                              visible: false,
-                            )
-                          : _outputs != null
-                              ? Text(
-                                  _outputs![0]["label"],
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 20),
-                                )
-                              : Container(child: Text(""))
-                    ],
-                  ),
+                  margin: const EdgeInsets.all(20),
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: _image == null
+                      ? Container()
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            _image == null ? Container() : Image.file(_image!),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text("Disease Name:  "),
+                                _image == null
+                                    ? Visibility(
+                                        child: Container(),
+                                        visible: false,
+                                      )
+                                    : _outputs != null
+                                        ? Text(
+                                            _outputs![0]["label"]
+                                                .toString()
+                                                .toUpperCase(),
+                                            style: const TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 20,
+                                            ),
+                                          )
+                                        : Container(child: const Text("")),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            ElevatedButton.icon(
+                              onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CropReport(
+                                      diseaseName: _outputs![0]["label"]),
+                                ),
+                              ),
+                              icon: const Icon(Icons.info),
+                              label: const Text("See More Info"),
+                              style: const ButtonStyle(),
+                            ),
+                          ],
+                        ),
                 ),
           !_loading && _image == null
-              ? Center(
-                  child: CustomHeading(
-                      subTitle: " to Detect Disease in ${widget.title} Crops",
-                      title: "Select an Image",
-                      color: Color.fromARGB(255, 75, 117, 32)),
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: CustomHeading(
+                          subTitle:
+                              " to Detect Disease in ${widget.title} Crops",
+                          title: "Select an Image",
+                          color: const Color.fromARGB(255, 75, 117, 32)),
+                    ),
+                    const SizedBox(height: spacer * 0.5),
+                    FloatingActionButton(
+                      tooltip: 'Pick Image',
+                      onPressed: pickImage,
+                      child: const Icon(
+                        Icons.add_a_photo,
+                        size: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 )
               : Container(
                   height: smallSpacer,
                 ),
-          SizedBox(height: spacer),
-          FloatingActionButton(
-            tooltip: 'Pick Image',
-            onPressed: pickImage,
-            child: Icon(
-              Icons.add_a_photo,
-              size: 20,
-              color: Colors.white,
-            ),
-          ),
+
           // IconButton(
           //   onPressed: pickImage,
           //   icon: Icon(

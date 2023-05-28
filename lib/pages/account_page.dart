@@ -72,7 +72,7 @@ class _AccountPageState extends State<AccountPage> {
                   MaterialPageRoute(builder: (context) => const LoginPage()));
             },
             child: const Text("LOG OUT"),
-          )
+          ),
         ],
       ),
     );

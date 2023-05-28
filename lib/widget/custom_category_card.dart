@@ -43,7 +43,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
                 width: size.width * .6,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15.0),
-                  child: Image.network(
+                  child: Image.asset(
                     widget.thumbNail,
                     fit: BoxFit.cover,
                   ),

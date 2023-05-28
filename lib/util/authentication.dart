@@ -23,8 +23,8 @@ class Authentication {
 
     User? user = FirebaseAuth.instance.currentUser;
 
-    if (user != null) {
-      Navigator.of(context).pushReplacement(
+    if (user == null) {
+      Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => RootApp(
             user: user,
@@ -96,7 +96,13 @@ class Authentication {
         }
       }
     }
-
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => RootApp(
+          user: user,
+        ),
+      ),
+    );
     return user;
   }
 

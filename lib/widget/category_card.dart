@@ -36,7 +36,7 @@ class CategoryCard extends StatelessWidget {
           child: InkWell(
             onTap: press,
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: <Widget>[
                   const Spacer(),
@@ -53,7 +53,7 @@ class CategoryCard extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color.fromARGB(255, 83, 128, 36),
-                      fontSize: fSize == null ? 20 : fSize,
+                      fontSize: fSize == null ? 18 : fSize,
                       fontWeight: FontWeight.bold,
                     ),
                   )

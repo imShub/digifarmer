@@ -12,6 +12,7 @@ class AuthMethods {
     required String? email,
     required String? password,
     required String? username,
+    required int phone,
   }) async {
     String result = 'Some error occurred';
     try {
@@ -25,14 +26,15 @@ class AuthMethods {
           name: name!,
           uid: user.user!.uid,
           username: username!,
-          followers: [],
-          following: [],
+          phone: phone,
+          // followers: [],
+          // following: [],
         );
 
         await _firestore.collection('users').doc(user.user!.uid).set(
               userModel.toJson(),
             );
-        result = 'success';
+        result = "You're successfully registered";
       }
     } catch (err) {
       result = err.toString();

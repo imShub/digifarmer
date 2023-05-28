@@ -3,12 +3,13 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        jcenter() 
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.3.0'
+        classpath 'com.google.gms:google-services:4.3.8'
     }
 }
 
@@ -30,3 +31,4 @@ subprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+

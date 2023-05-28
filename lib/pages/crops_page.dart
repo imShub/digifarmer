@@ -61,7 +61,7 @@ class _CropsPageState extends State<CropsPage> {
                     const EdgeInsets.only(left: appPadding, right: appPadding),
                 child: Column(
                   children: <Widget>[
-                    const SizedBox(height: spacer),
+                    const SizedBox(height: spacer + spacer * 0.5),
                     //heading
                     const Text(
                       "Welcome to",
