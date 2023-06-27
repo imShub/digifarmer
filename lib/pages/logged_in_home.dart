@@ -65,13 +65,22 @@ class _LoggedInWidget extends State<LoggedInWidget> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CustomHeading(
-                          // title: 'Hi, ${userName[0]}!',
-                          title:
-                              'Hi,${userName != null ? userName[0] + " !" : " Shubham"}',
-                          subTitle: 'Let\'s start prediction.',
+                        Column(
+                          children: [
+                            CustomHeading(
+                              // title: 'Hi, ${userName[0]}!',
+                              title:
+                                  'Hi,${userName != null ? userName[0] + " !" : " Shubham"}',
+                              subTitle: 'Let\'s start prediction.',
 
-                          color: Colors.white,
+                              color: Colors.white,
+                            ),
+                            // ElevatedButton.icon(
+                            //   onPressed: _logOut,
+                            //   icon: const Icon(Icons.logout),
+                            //   label: const Text("Logout"),
+                            // ),
+                          ],
                         ),
                         Container(
                           height: 85,
@@ -84,7 +93,8 @@ class _LoggedInWidget extends State<LoggedInWidget> {
                               // maxRadius: 80,
                               foregroundImage: userPicUrl.toString() == null
                                   ? NetworkImage(userPicUrl.toString())
-                                  : AssetImage("assets/images/profile-pic.png")
+                                  : const AssetImage(
+                                          "assets/images/profile-pic.png")
                                       as ImageProvider,
                             ),
                           ),
@@ -92,13 +102,6 @@ class _LoggedInWidget extends State<LoggedInWidget> {
                       ],
                     ),
                     const SizedBox(height: spacer),
-                    Container(
-                      child: ElevatedButton.icon(
-                        onPressed: _logOut,
-                        icon: Icon(Icons.logout),
-                        label: Text("Logout"),
-                      ),
-                    ),
                     // search
                     const CustomSearchField(
                       hintField: 'Try "Disease Detection"',
@@ -142,7 +145,7 @@ class _LoggedInWidget extends State<LoggedInWidget> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CropsPage(),
+                            builder: (context) => const CropsPage(),
                           ));
                     },
                     child: CustomCourseCardExpand(
@@ -155,8 +158,6 @@ class _LoggedInWidget extends State<LoggedInWidget> {
             ),
           ),
           const SizedBox(height: spacer - 20.0),
-
-          const SizedBox(height: spacer - 10.0),
         ],
       ),
     );
@@ -170,7 +171,7 @@ class _LoggedInWidget extends State<LoggedInWidget> {
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => const LoginPage(),
         ));
   }
 

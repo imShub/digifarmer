@@ -1,7 +1,7 @@
 // ignore: constant_identifier_names
 const List CoursesJson = [
   {
-    'image': 'assets/images/cardImg/quality.avif',
+    'image': 'assets/images/cardImg/quality.jpg',
     'title': 'Crop Quality Detection',
   },
   {

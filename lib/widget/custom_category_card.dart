@@ -21,7 +21,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
     return Container(
       width: size.width * .6,
       alignment: Alignment.topCenter,
-      padding: EdgeInsets.all(7.0),
+      padding: const EdgeInsets.all(7.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(17.0),
@@ -29,7 +29,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
             blurRadius: 10.0,
-            offset: Offset(0, 5),
+            offset: const Offset(0, 5),
           )
         ],
       ),
@@ -51,7 +51,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
               ),
             ],
           ),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
           Container(
             padding: const EdgeInsets.only(
               left: 7.0,
@@ -61,14 +61,14 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
               widget.title,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Color.fromARGB(255, 89, 109, 42),
                 fontSize: 17.0,
                 fontWeight: FontWeight.w700,
               ),
             ),
           ),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
         ],
       ),
     );

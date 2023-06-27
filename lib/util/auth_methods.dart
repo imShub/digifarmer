@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -13,6 +15,7 @@ class AuthMethods {
     required String? password,
     required String? username,
     required int phone,
+    required String? profileImageUrl,
   }) async {
     String result = 'Some error occurred';
     try {
@@ -27,6 +30,7 @@ class AuthMethods {
           uid: user.user!.uid,
           username: username!,
           phone: phone,
+          profileImageUrl: profileImageUrl!,
           // followers: [],
           // following: [],
         );

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
@@ -6,6 +8,7 @@ class UserModel {
   final int phone;
   final String uid;
   final String username;
+  final String profileImageUrl;
   // final List followers;
   // final List following;
 
@@ -15,6 +18,8 @@ class UserModel {
     required this.phone,
     required this.username,
     required this.uid,
+    required this.profileImageUrl,
+
     // required this.followers,
     // required this.following,
   });
@@ -25,6 +30,7 @@ class UserModel {
         "name": name,
         "phone": phone,
         "username": username,
+        "profileImageUrl": profileImageUrl,
         // "followers": followers,
         // "following": following,
       };
@@ -39,6 +45,7 @@ class UserModel {
       // following: snapshot['following'],
       // followers: snapshot['followers'],
       email: snapshot['email'],
+      profileImageUrl: snapshot['profileImageUrl'],
     );
   }
 }
