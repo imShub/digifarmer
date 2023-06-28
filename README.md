@@ -13,7 +13,7 @@ DigiFarmer is an app that uses AI&ML models to predict crop quality, detect dise
 
 ## Preview : 
 
-<p align="left"><img width=25% src="https://github.com/KaranPatra/DIGIFARMER/blob/master/assets/images/app-logo.png"></p>
+<p align="left"><img width=25% src="https://github.com/imShub/digifarmer/blob/master/assets/images/app-logo.png"></p>
 
 <p align="left">
 <img width=20% src="https://github.com/imShub/digifarmer/blob/master/assets/images/preview/1.png"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
